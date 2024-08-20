@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_error_message">Ha ocurrido un error, por favor inténtelo más tarde</string>
+    <string name="connection_error_message">Ha ocurrido un error de conexión, revisa tu conexión a internet</string>
+    <string name="emptyField">Campo vacío</string>
+    <string name="emailInvalid">Invalid email</string>
+    <string name="welcome_continue">Continue</string>
+    <string name="welcome_forgot_password">Forgot your password?</string>
+    <string name="login_title">Login %s</string>
+    <string name="login_name">Name</string>
+    <string name="login_password">Password</string>
+    <string name="login_password_view">View</string>
+    <string name="login_password_hide">Hide</string>
+</resources>

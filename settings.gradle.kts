@@ -17,5 +17,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "AuthProsegurApp"
 include(":app")
-include(":auth")
-project(":auth").projectDir = file("./auth")
+include(":mauth")

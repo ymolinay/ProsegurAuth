@@ -29,15 +29,11 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("String", "HOST_API", "\"https://reqres.in\"")
-            buildConfigField("okhttp3.logging.HttpLoggingInterceptor.Level", "LEVEL_LOGS", "okhttp3.logging.HttpLoggingInterceptor.Level.NONE")
         }
 
         debug {
             isMinifyEnabled = false
             isDebuggable = true
-            buildConfigField("String", "HOST_API", "\"https://reqres.in\"")
-            buildConfigField("okhttp3.logging.HttpLoggingInterceptor.Level", "LEVEL_LOGS", "okhttp3.logging.HttpLoggingInterceptor.Level.BODY")
         }
     }
     compileOptions {
@@ -63,7 +59,7 @@ android {
 
 dependencies {
 
-    implementation(project(":auth"))
+    implementation(project(":mauth"))
 
     implementation(libs.core.ktx)
     implementation(platform(libs.compose.bom))
