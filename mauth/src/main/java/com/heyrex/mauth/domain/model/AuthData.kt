@@ -20,4 +20,4 @@ data class AuthData(
     }
 }
 
-    fun AuthData.toRequest() = AuthRequest(user = user, password = password, profile = profile)
+fun AuthData.toRequest() = AuthRequest(user = user, password = password, profile = profile)

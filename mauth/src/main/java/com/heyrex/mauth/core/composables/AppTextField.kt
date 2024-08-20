@@ -31,7 +31,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.heyrex.mauth.R
-import com.heyrex.mauth.core.utils.textSimple
+import com.heyrex.mauth.core.composables.theme.textSimple
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

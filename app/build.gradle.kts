@@ -48,7 +48,7 @@ android {
         buildConfig = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.2"
     }
     packaging {
         resources {
@@ -58,9 +58,7 @@ android {
 }
 
 dependencies {
-
     implementation(project(":mauth"))
-
     implementation(libs.core.ktx)
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)
@@ -68,23 +66,4 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
-    implementation(libs.hilt.navigation.compose)
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.converter.gson)
-    implementation(libs.okhttp.logging.interceptor)
-    implementation(libs.okhttp)
-    implementation(libs.coil.compose)
-    implementation(libs.swipe.refresh)
-    implementation(libs.crypto)
-
-    // Test mockito
-    testImplementation(libs.mockito)
-    androidTestImplementation(libs.mockitoAndroid)
-    testImplementation(libs.mockitoKotlin)
-
-    // Test MockWebServer
-    testImplementation(libs.mockk)
-    testImplementation(libs.coroutineTest)
-
-    implementation("androidx.compose.material:material-icons-extended:1.0.0")
 }

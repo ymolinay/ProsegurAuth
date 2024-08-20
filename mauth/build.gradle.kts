@@ -52,17 +52,10 @@ android {
 dependencies {
 
     implementation(libs.core.ktx)
-
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
-
-    implementation(libs.appcompat)
-    implementation(libs.material)
-
-    androidTestImplementation(libs.espresso.core)
-
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
     implementation(libs.hilt.navigation.compose)
@@ -70,6 +63,16 @@ dependencies {
     implementation(libs.retrofit.converter.gson)
     implementation(libs.okhttp.logging.interceptor)
     implementation(libs.okhttp)
+    implementation("androidx.compose.material:material-icons-extended:1.0.0")
+
+    // Test mockito
+    testImplementation(libs.mockito)
+    androidTestImplementation(libs.mockitoAndroid)
+    testImplementation(libs.mockitoKotlin)
+
+    // Test MockWebServer
+    testImplementation(libs.mockk)
+    testImplementation(libs.coroutineTest)
 
     implementation("androidx.compose.material:material-icons-extended:1.0.0")
 }

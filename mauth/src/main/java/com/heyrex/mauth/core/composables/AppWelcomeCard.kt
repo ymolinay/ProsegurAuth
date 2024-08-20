@@ -19,8 +19,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.heyrex.mauth.core.utils.cardColors
-import com.heyrex.mauth.core.utils.titleBold
+import com.heyrex.mauth.core.composables.theme.cardColors
+import com.heyrex.mauth.core.composables.theme.titleBold
 
 @Composable
 fun AppWelcomeCard(

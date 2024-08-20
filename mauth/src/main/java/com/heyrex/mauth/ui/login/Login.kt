@@ -8,10 +8,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -31,10 +33,11 @@ import com.heyrex.mauth.core.composables.AppWelcomeBack
 import com.heyrex.mauth.core.composables.AppWelcomeCard
 import com.heyrex.mauth.core.composables.CircularIcon
 import com.heyrex.mauth.core.composables.EventProcessor
+import com.heyrex.mauth.core.composables.theme.AppTheme
 import com.heyrex.mauth.core.utils.formatEmailUsername
 import com.heyrex.mauth.core.utils.isValidEmail
-import com.heyrex.mauth.core.utils.textSimple
-import com.heyrex.mauth.core.utils.titleBold
+import com.heyrex.mauth.core.composables.theme.textSimple
+import com.heyrex.mauth.core.composables.theme.titleBold
 import com.heyrex.mauth.domain.model.User
 
 @Composable
@@ -97,76 +100,85 @@ private fun LoginContent(
         enter = fadeIn(initialAlpha = 0.3f),
         exit = fadeOut()
     ) {
-        AppWelcomeBack {
-            Column(
-                modifier = Modifier
-                    .padding(top = 180.dp)
-                    .fillMaxSize()
-            ) {
-                Text(
-                    text = stringResource(id = R.string.login_title, type.value),
-                    style = titleBold.copy(fontSize = 24.sp),
-                    modifier = Modifier
-                        .padding(horizontal = 32.dp)
-                )
-                AppWelcomeCard {
+
+        AppTheme {
+            Scaffold(
+                modifier = Modifier.fillMaxSize()
+            ) { innerPadding ->
+                AppWelcomeBack {
                     Column(
                         modifier = Modifier
-                            .padding(16.dp)
+                            .padding(innerPadding)
+                            .padding(top = 120.dp)
+                            .fillMaxSize()
+                            .imePadding(),
                     ) {
-
-                        Row(
-                            horizontalArrangement = Arrangement.Start,
+                        Text(
+                            text = stringResource(id = R.string.login_title, type.value),
+                            style = titleBold.copy(fontSize = 24.sp),
                             modifier = Modifier
-                                .fillMaxWidth(),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            CircularIcon(
-                                imageVector = Icons.Default.Person,
-                                backgroundColor = Color.LightGray,
-                                iconColor = Color.White,
-                                size = 60.dp
-                            )
+                                .padding(horizontal = 32.dp)
+                        )
+                        AppWelcomeCard {
                             Column(
                                 modifier = Modifier
-                                    .padding(start = 16.dp)
+                                    .padding(16.dp)
                             ) {
-                                Text(
-                                    text = email.formatEmailUsername(),
-                                    style = textSimple.copy(fontSize = 16.sp)
+
+                                Row(
+                                    horizontalArrangement = Arrangement.Start,
+                                    modifier = Modifier
+                                        .fillMaxWidth(),
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    CircularIcon(
+                                        imageVector = Icons.Default.Person,
+                                        backgroundColor = Color.LightGray,
+                                        iconColor = Color.White,
+                                        size = 60.dp
+                                    )
+                                    Column(
+                                        modifier = Modifier
+                                            .padding(start = 16.dp)
+                                    ) {
+                                        Text(
+                                            text = email.formatEmailUsername(),
+                                            style = textSimple.copy(fontSize = 16.sp)
+                                        )
+                                        Text(
+                                            text = email,
+                                            style = titleBold.copy(fontSize = 16.sp)
+                                        )
+                                    }
+                                }
+                                AppDivider(height = 18.dp)
+                                AppTextField(
+                                    value = email,
+                                    placeholder = stringResource(id = R.string.login_name),
+                                    onValueChange = onEmailChanged
                                 )
+                                AppDivider(height = 12.dp)
+                                AppTextFieldPassword(
+                                    value = password,
+                                    placeholder = stringResource(id = R.string.login_password),
+                                    onValueChange = onPasswordChanged
+                                )
+                                AppDivider(height = 8.dp)
+                                AppButton(
+                                    text = stringResource(id = R.string.welcome_continue),
+                                    modifier = Modifier
+                                        .fillMaxWidth(),
+                                    onClick = { onLogin.invoke() },
+                                    enabled = email.isValidEmail() && password.isNotBlank(),
+                                )
+                                AppDivider(height = 24.dp)
                                 Text(
-                                    text = email,
-                                    style = titleBold.copy(fontSize = 16.sp)
+                                    text = stringResource(id = R.string.welcome_forgot_password),
+                                    style = titleBold.copy(fontSize = 16.sp),
+                                    color = MaterialTheme.colorScheme.primary
                                 )
                             }
                         }
-                        AppDivider(height = 24.dp)
-                        AppTextField(
-                            value = email,
-                            placeholder = stringResource(id = R.string.login_name),
-                            onValueChange = onEmailChanged
-                        )
-                        AppDivider(height = 24.dp)
-                        AppTextFieldPassword(
-                            value = password,
-                            placeholder = stringResource(id = R.string.login_password),
-                            onValueChange = onPasswordChanged
-                        )
-                        AppDivider(height = 12.dp)
-                        AppButton(
-                            text = stringResource(id = R.string.welcome_continue),
-                            modifier = Modifier
-                                .fillMaxWidth(),
-                            onClick = { onLogin.invoke() },
-                            enabled = email.isValidEmail() && password.isNotBlank(),
-                        )
-                        AppDivider(height = 24.dp)
-                        Text(
-                            text = stringResource(id = R.string.welcome_forgot_password),
-                            style = titleBold.copy(fontSize = 16.sp),
-                            color = MaterialTheme.colorScheme.primary
-                        )
                     }
                 }
             }
