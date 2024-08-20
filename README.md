@@ -1,0 +1,3 @@
+![Welcome](https://firebasestorage.googleapis.com/v0/b/retostecnicos.appspot.com/o/MyLocalApps%2Fwelcome.png?alt=media&token=179c7991-f093-4cfa-9b12-d01470ef65f5)
+![Customer](https://firebasestorage.googleapis.com/v0/b/retostecnicos.appspot.com/o/MyLocalApps%2Fcustomer.png?alt=media&token=2e0af8b9-b1aa-4a30-a526-ef5563d408c1)
+![Employee](https://firebasestorage.googleapis.com/v0/b/retostecnicos.appspot.com/o/MyLocalApps%2Femployee.png?alt=media&token=f184a706-3fe3-4c99-be82-7582fd5fd753)
